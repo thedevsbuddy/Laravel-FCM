@@ -1,11 +1,12 @@
 # Laravel-FCM
 
-[![Build Status](https://travis-ci.org/brozot/Laravel-FCM.svg?branch=master)](https://travis-ci.org/brozot/Laravel-FCM) [![Coverage Status](https://coveralls.io/repos/github/brozot/Laravel-FCM/badge.svg?branch=master)](https://coveralls.io/github/brozot/Laravel-FCM?branch=master) [![Latest Stable Version](https://poser.pugx.org/brozot/laravel-fcm/v/stable)](https://packagist.org/packages/brozot/laravel-fcm) [![Total Downloads](https://poser.pugx.org/brozot/laravel-fcm/downloads)](https://packagist.org/packages/brozot/laravel-fcm)
-[![License](https://poser.pugx.org/brozot/laravel-fcm/license)](https://packagist.org/packages/brozot/laravel-fcm)
+[![Build Status](https://travis-ci.org/thedevsbuddy/Laravel-FCM.svg?branch=master)](https://travis-ci.org/thedevsbuddy/Laravel-FCM) [![Coverage Status](https://coveralls.io/repos/github/thedevsbuddy/Laravel-FCM/badge.svg?branch=master)](https://coveralls.io/github/thedevsbuddy/Laravel-FCM?branch=master) [![Latest Stable Version](https://poser.pugx.org/thedevsbuddy/laravel-fcm/v/stable)](https://packagist.org/packages/thedevsbuddy/laravel-fcm) [![Total Downloads](https://poser.pugx.org/thedevsbuddy/laravel-fcm/downloads)](https://packagist.org/packages/thedevsbuddy/laravel-fcm)
+[![License](https://poser.pugx.org/thedevsbuddy/laravel-fcm/license)](https://packagist.org/packages/thedevsbuddy/laravel-fcm)
 
 ## Introduction
 
-Laravel-FCM is an easy to use package working with both Laravel and Lumen for sending push notification with [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM).
+Laravel-FCM is an easy-to-use package working with both Laravel and Lumen for sending push notification
+with [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM).
 
 It currently **only supports HTTP protocol** for :
 
@@ -15,31 +16,28 @@ It currently **only supports HTTP protocol** for :
 
 > Note: The XMPP protocol is not currently supported.
 
-
 ## Installation
 
 To get the latest version of Laravel-FCM on your project, require it from "composer":
 
-
 	$ composer require apility/laravel-fcm
-
 
 Or you can add it directly in your composer.json file:
 
 ```json
 {
     "require": {
-        "apility/laravel-fcm": "^1.4.*"
+        "thedevsbuddy/laravel-fcm": "^1.5.*"
     }
 }
 ```
-
 
 ### Laravel
 
 Register the provider directly in your app configuration file config/app.php `config/app.php`:
 
-Laravel >= 5.5 provides package auto-discovery, thanks to rasmuscnielsen and luiztessadri who help to implement this feature in Laravel-FCM, the registration of the provider and the facades should not be necessary anymore.
+Laravel >= 5.5 provides package auto-discovery, thanks to rasmuscnielsen and luiztessadri who help to implement this
+feature in Laravel-FCM, the registration of the provider and the facades should not be necessary anymore.
 
 ```php
 'providers' => [
@@ -63,9 +61,7 @@ Add the facade aliases in the same file:
 
 Publish the package config file using the following command:
 
-
 	$ php artisan vendor:publish --provider="LaravelFCM\FCMServiceProvider"
-
 
 ### Lumen
 
@@ -77,15 +73,16 @@ Add the following line in the "Register Service Providers"  section at the botto
 $app->register(LaravelFCM\FCMServiceProvider::class);
 ```
 
-For facades, add the following lines in the section "Create The Application" . FCMGroup facade is only necessary if you want to use groups message in your application.
+For facades, add the following lines in the section "Create The Application" . FCMGroup facade is only necessary if you
+want to use groups message in your application.
 
 ```php
 class_alias(\LaravelFCM\Facades\FCM::class, 'FCM');
 class_alias(\LaravelFCM\Facades\FCMGroup::class, 'FCMGroup');
 ```
 
-Copy the config file ```fcm.php``` manually from the directory ```/vendor/brozot/laravel-fcm/config``` to the directory ```/config ``` (you may need to create this directory).
-
+Copy the config file ```fcm.php``` manually from the directory ```/vendor/thedevsbuddy/laravel-fcm/config``` to the
+directory ```/config ``` (you may need to create this directory).
 
 ### Package Configuration
 
@@ -96,10 +93,10 @@ FCM_SERVER_KEY=my_secret_server_key
 FCM_SENDER_ID=my_secret_sender_id
 ```
 
-To get these keys, you must create a new application on the [firebase cloud messaging console](https://console.firebase.google.com/).
+To get these keys, you must create a new application on
+the [firebase cloud messaging console](https://console.firebase.google.com/).
 
 After the creation of your application on Firebase, you can find keys in `project settings -> cloud messaging`.
-
 
 ## Basic Usage
 
@@ -108,12 +105,13 @@ Two types of messages can be sent using Laravel-FCM:
 - Notification messages, sometimes thought of as "display messages"
 - Data messages, which are handled by the client app
 
-More information is available in the [official documentation](https://firebase.google.com/docs/cloud-messaging/concept-options).
-
+More information is available in
+the [official documentation](https://firebase.google.com/docs/cloud-messaging/concept-options).
 
 ### Downstream Messages
 
-A downstream message is a notification message, a data message, or both, that you send to a target device or to multiple target devices using its registration_Ids.
+A downstream message is a notification message, a data message, or both, that you send to a target device or to multiple
+target devices using its registration_Ids.
 
 The following use statements are required for the examples below:
 
@@ -201,13 +199,17 @@ $downstreamResponse->tokensToRetry();
 $downstreamResponse->tokensWithError();
 ```
 
-> Kindly refer [Downstream message error response codes](https://firebase.google.com/docs/cloud-messaging/http-server-ref#error-codes) documentation for more information.
+> Kindly
+> refer [Downstream message error response codes](https://firebase.google.com/docs/cloud-messaging/http-server-ref#error-codes)
+> documentation for more information.
 
 ### Topics Messages
 
-A topics message is a notification message, data message, or both, that you send to all the devices registered to this topic.
+A topics message is a notification message, data message, or both, that you send to all the devices registered to this
+topic.
 
-> Note: Topic names must be managed by your app and known by your server. The Laravel-FCM package or fcm doesn't provide an easy way to do that.
+> Note: Topic names must be managed by your app and known by your server. The Laravel-FCM package or fcm doesn't provide
+> an easy way to do that.
 
 The following use statement is required for the examples below:
 
@@ -287,7 +289,6 @@ $groupResponse->numberFailure();
 $groupResponse->tokensFailed();
 ```
 
-
 #### Creating a Group
 
 ```php
@@ -321,10 +322,10 @@ $notificationKey = "notification_key_received_when_group_was_created";
 $key = FCMGroup::removeFromGroup($groupName, $notificationKey, $tokens);
 ```
 
-
 ## Options
 
-Laravel-FCM supports options based on the options of Firebase Cloud Messaging. These options can help you to define the specificity of your notification.
+Laravel-FCM supports options based on the options of Firebase Cloud Messaging. These options can help you to define the
+specificity of your notification.
 
 You can construct an option as follows:
 
@@ -339,15 +340,16 @@ $options = $optionsBuilder->build();
 
 ## Notification Messages
 
-Notification payload is used to send a notification, the behaviour is defined by the App State and the OS of the receptor device.
+Notification payload is used to send a notification, the behaviour is defined by the App State and the OS of the
+receptor device.
 
-**Notification messages are delivered to the notification tray when the app is in the background.** For apps in the foreground, messages are handled by these callbacks:
+**Notification messages are delivered to the notification tray when the app is in the background.** For apps in the
+foreground, messages are handled by these callbacks:
 
 - didReceiveRemoteNotification: on iOS
 - onMessageReceived() on Android. The notification key in the data bundle contains the notification.
 
 See the [official documentation](https://firebase.google.com/docs/cloud-messaging/concept-options#notifications).
-
 
 ```php
 $notificationBuilder = new PayloadNotificationBuilder();
@@ -361,13 +363,15 @@ $notification = $notificationBuilder->build();
 
 ## Data Messages
 
-Set the data key with your custom key-value pairs to send a data payload to the client app. Data messages can have a 4KB maximum payload.
+Set the data key with your custom key-value pairs to send a data payload to the client app. Data messages can have a 4KB
+maximum payload.
 
-- **iOS**, FCM stores the message and delivers it **only when the app is in the foreground** and has established a FCM connection.
-- **Android**, a client app receives a data message in onMessageReceived() and can handle the key-value pairs accordingly.
+- **iOS**, FCM stores the message and delivers it **only when the app is in the foreground** and has established a FCM
+  connection.
+- **Android**, a client app receives a data message in onMessageReceived() and can handle the key-value pairs
+  accordingly.
 
 See the [official documentation](https://firebase.google.com/docs/cloud-messaging/concept-options#data_messages).
-
 
 ```php
 $dataBuilder = new PayloadDataBuilder();
@@ -380,15 +384,19 @@ $data = $dataBuilder->build();
 
 ## Notification & Data Messages
 
-App behavior when receiving messages that include both notification and data payloads depends on whether the app is in the background or the foreground—essentially, whether or not it is active at the time of receipt ([source](https://firebase.google.com/docs/cloud-messaging/concept-options#messages-with-both-notification-and-data-payloads)).
+App behavior when receiving messages that include both notification and data payloads depends on whether the app is in
+the background or the foreground—essentially, whether or not it is active at the time of
+receipt ([source](https://firebase.google.com/docs/cloud-messaging/concept-options#messages-with-both-notification-and-data-payloads))
+.
 
-- **Background**, apps receive notification payload in the notification tray, and only handle the data payload when the user taps on the notification.
+- **Background**, apps receive notification payload in the notification tray, and only handle the data payload when the
+  user taps on the notification.
 - **Foreground**, your app receives a message object with both payloads available.
-
 
 ## Topics
 
-For topics message, Laravel-FCM offers an easy to use api which abstract firebase conditions. To make the condition given for example in the firebase official documentation it must be done with Laravel-FCM like below:
+For topics message, Laravel-FCM offers an easy to use api which abstract firebase conditions. To make the condition
+given for example in the firebase official documentation it must be done with Laravel-FCM like below:
 
 **Official documentation condition**
 
@@ -404,7 +412,6 @@ $topics->topic('TopicA')
 	       $condition->topic('TopicB')->orTopic('TopicC');
        });
 ```
-
 
 ## Testing
 
@@ -438,9 +445,9 @@ $this->app->singleton('fcm.sender', function($app) use($sender) {
 
 You can find more documentation about the API in the [API reference](./doc/Readme.md).
 
-
 ## Licence
 
 This library is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
 
-Some of this documentation is coming from the official documentation. You can find it completely on the [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) Website.
+Some of this documentation is coming from the official documentation. You can find it completely on
+the [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) Website.
