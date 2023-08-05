@@ -7,6 +7,10 @@
     "version": "1.5.1",
     "authors": [
         {
+            "name": "Shoaib Khan",
+            "email": "shoaib.khan@devsbuddy.com"
+        },
+        {
             "name": "Nicolas Brosy",
             "email": "nicolas.brosy@gmail.com"
         },
