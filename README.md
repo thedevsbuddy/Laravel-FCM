@@ -1,6 +1,6 @@
 # Laravel-FCM
 
-[![Build Status](https://travis-ci.org/thedevsbuddy/Laravel-FCM.svg?branch=master)](https://travis-ci.org/thedevsbuddy/Laravel-FCM) [![Coverage Status](https://coveralls.io/repos/github/thedevsbuddy/Laravel-FCM/badge.svg?branch=master)](https://coveralls.io/github/thedevsbuddy/Laravel-FCM?branch=master) [![Latest Stable Version](https://poser.pugx.org/thedevsbuddy/laravel-fcm/v/stable)](https://packagist.org/packages/thedevsbuddy/laravel-fcm) [![Total Downloads](https://poser.pugx.org/thedevsbuddy/laravel-fcm/downloads)](https://packagist.org/packages/thedevsbuddy/laravel-fcm)
+[![Build Status](https://travis-ci.org/thedevsbuddy/Laravel-FCM.svg?branch=master)](https://travis-ci.org/thedevsbuddy/Laravel-FCM) [![Coverage Status](https://coveralls.io/repos/github/thedevsbuddy/Laravel-FCM/badge.svg?branch=main)](https://coveralls.io/github/thedevsbuddy/Laravel-FCM?branch=main) [![Latest Stable Version](https://poser.pugx.org/thedevsbuddy/laravel-fcm/v/stable)](https://packagist.org/packages/thedevsbuddy/laravel-fcm) [![Total Downloads](https://poser.pugx.org/thedevsbuddy/laravel-fcm/downloads)](https://packagist.org/packages/thedevsbuddy/laravel-fcm)
 [![License](https://poser.pugx.org/thedevsbuddy/laravel-fcm/license)](https://packagist.org/packages/thedevsbuddy/laravel-fcm)
 
 ## Introduction
