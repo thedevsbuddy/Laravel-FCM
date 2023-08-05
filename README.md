@@ -20,7 +20,9 @@ It currently **only supports HTTP protocol** for :
 
 To get the latest version of Laravel-FCM on your project, require it from "composer":
 
-	$ composer require apility/laravel-fcm
+```bash
+composer require thedevsbuddy/laravel-fcm
+```
 
 Or you can add it directly in your composer.json file:
 
@@ -61,7 +63,9 @@ Add the facade aliases in the same file:
 
 Publish the package config file using the following command:
 
-	$ php artisan vendor:publish --provider="LaravelFCM\FCMServiceProvider"
+```bash
+php artisan vendor:publish --provider="LaravelFCM\FCMServiceProvider"
+```
 
 ### Lumen
 
